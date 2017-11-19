@@ -19,43 +19,42 @@ services:
         restart: always
 
     owncloud:
-        image: owncloud/server:${VERSION}
-        restart: always
-        ports:
-            - ${HTTPS_PORT}:443
-            - ${HTTP_PORT}:80
+        build: owncloud
+        image: owncloud_server
+        container_name: owncloud_server1
+        volumes:
+            - ../docker_volumes/owncloud:/mnt/data
         depends_on:
             - db
             - redis
         environment:
-            - OWNCLOUD_DOMAIN=${DOMAIN}
+            - OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN}
             - OWNCLOUD_DB_TYPE=mysql
             - OWNCLOUD_DB_NAME=owncloud
             - OWNCLOUD_DB_USERNAME=owncloud
             - OWNCLOUD_DB_PASSWORD=owncloud
             - OWNCLOUD_DB_HOST=db
-            - OWNCLOUD_ADMIN_USERNAME=${ADMIN_USERNAME}
-            - OWNCLOUD_ADMIN_PASSWORD=${ADMIN_PASSWORD}
+            - OWNCLOUD_ADMIN_USERNAME=${OWNCLOUD_ADMIN_USERNAME}
+            - OWNCLOUD_ADMIN_PASSWORD=${OWNCLOUD_ADMIN_PASSWORD}
             - OWNCLOUD_UTF8MB4_ENABLED=true
             - OWNCLOUD_REDIS_ENABLED=true
             - OWNCLOUD_REDIS_HOST=redis
-        healthcheck:
-            test: ["CMD", "curl", "-f", "http://localhost:80/status.php"]
-            interval: 30s
-            timeout: 10s
-            retries: 5
-        volumes:
-            - ./data:/mnt/data
+        # healthcheck:
+        #     test: ["CMD", "curl", "-f", "http://localhost:80/status.php"]
+        #     interval: 30s
+        #     timeout: 10s
+        #     retries: 5
+        restart: always
 
-    web1:
-        build: web1
-        image: nginx_web
-        container_name: nginx_web1
+    # web1:
+    #     build: web1
+    #     image: nginx_web
+    #     container_name: nginx_web1
 
-    web2:
-        build: web2
-        image: apache_web
-        container_name: apache_web1
+    # web2:
+    #     build: web2
+    #     image: apache_web
+    #     container_name: apache_web1
 
 volumes:
     letsencrypt:
