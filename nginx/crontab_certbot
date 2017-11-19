@@ -1,0 +1,2 @@
+# run certbot renewal check every Friday at 15 minutes after midnight
+15 0 * * 5 sh /root/certbot_renew.sh
