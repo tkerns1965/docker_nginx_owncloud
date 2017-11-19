@@ -74,8 +74,6 @@ services:
         container_name: owncloud_redis1
         volumes:
             - ../docker_volumes/redis:/var/lib/redis
-        environment:
-            - REDIS_MAXCONN=10000
         # healthcheck:
         #     test: ["CMD", "/usr/bin/healthcheck"]
         #     interval: 30s
