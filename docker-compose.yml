@@ -80,13 +80,3 @@ services:
         #     timeout: 10s
         #     retries: 5
         restart: always
-
-    # web1:
-    #     build: web1
-    #     image: nginx_web
-    #     container_name: nginx_web1
-
-    # web2:
-    #     build: web2
-    #     image: apache_web
-    #     container_name: apache_web1
