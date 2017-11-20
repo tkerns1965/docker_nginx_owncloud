@@ -1,3 +1,3 @@
 FROM owncloud/server
 
-# RUN su - www-data php occ user:list
+RUN su -c "php occ user:report" www-data
