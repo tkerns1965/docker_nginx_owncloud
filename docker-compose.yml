@@ -3,8 +3,8 @@ version: "3"
 services:
     nginx:
         build: nginx
-        image: nginx_owncloud_rp
-        container_name: nginx_owncloud_rp1
+        image: nginx_revproxy
+        container_name: nginx_revproxy1
         volumes:
             - ../docker_volumes/letsencrypt:/etc/letsencrypt
         ports:
