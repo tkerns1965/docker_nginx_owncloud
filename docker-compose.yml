@@ -25,7 +25,7 @@ services:
         volumes:
             - ../docker_volumes/owncloud:/mnt/data
         depends_on:
-            - db
+            - mariadb
             - redis
         environment:
             - OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN}
