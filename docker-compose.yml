@@ -19,8 +19,9 @@ services:
         restart: always
 
     owncloud:
-        build: owncloud
-        image: owncloud_server
+        # build: owncloud
+        # image: owncloud_server
+        image: owncloud/server:${VERSION}
         container_name: owncloud_server1
         volumes:
             - ../docker_volumes/owncloud:/mnt/data
@@ -47,8 +48,9 @@ services:
         restart: always
 
     mariadb:
-        build: mariadb
-        image: owncloud_mariadb
+        # build: mariadb
+        # image: owncloud_mariadb
+        image: webhippie/mariadb:latest
         container_name: owncloud_mariadb1
         volumes:
             - ../docker_volumes/mysql:/var/lib/mysql
@@ -69,8 +71,9 @@ services:
         restart: always
 
     redis:
-        build: redis
-        image: owncloud_redis
+        # build: redis
+        # image: owncloud_redis
+        image: webhippie/redis:latest
         container_name: owncloud_redis1
         volumes:
             - ../docker_volumes/redis:/var/lib/redis
