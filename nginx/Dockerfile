@@ -7,6 +7,7 @@ RUN apk update && \
     mkdir /var/log/s6/nginx
 
 COPY s6 /etc/s6
+COPY reload_nginx.sh /root/
 COPY crontab_certbot /root/
 COPY *.conf /etc/nginx/conf.d/
 COPY *.html /usr/share/nginx/html/
