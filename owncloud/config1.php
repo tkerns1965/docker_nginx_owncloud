@@ -17,5 +17,5 @@ $CONFIG = array(
   "overwritehost"     => "owncloud.tkhome.ignorelist.com",
   "overwriteprotocol" => "https",
   "overwritewebroot"  => "/",
-  "overwritecondaddr" => "^nginx$"
+  "overwritecondaddr" => "^nginx$",
 );
