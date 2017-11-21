@@ -21,7 +21,7 @@ services:
     owncloud:
         # build: owncloud
         # image: owncloud_server
-        image: owncloud/server:${VERSION}
+        image: owncloud/server:${OWNCLOUD_VERSION}
         container_name: owncloud_server1
         volumes:
             - ../docker_volumes/owncloud:/mnt/data
