@@ -6,7 +6,7 @@ services:
         image: nginx_revproxy
         container_name: nginx_revproxy1
         volumes:
-            - ../docker_volumes/letsencrypt:/etc/letsencrypt
+            - /srv/docker_volumes/letsencrypt:/etc/letsencrypt
         ports:
             - "80:80"
             - "443:443"
@@ -27,7 +27,7 @@ services:
         # image: owncloud/server:${OWNCLOUD_VERSION}
         container_name: owncloud_server1
         volumes:
-            - ../docker_volumes/owncloud:/mnt/data
+            - /srv/docker_volumes/owncloud:/mnt/data
         depends_on:
             - mariadb
             - redis
@@ -56,7 +56,7 @@ services:
         image: webhippie/mariadb:latest
         container_name: owncloud_mariadb1
         volumes:
-            - ../docker_volumes/mysql:/var/lib/mysql
+            - /srv/docker_volumes/mysql:/var/lib/mysql
         environment:
             - MARIADB_ROOT_PASSWORD=owncloud
             - MARIADB_USERNAME=owncloud
@@ -79,7 +79,7 @@ services:
         image: webhippie/redis:latest
         container_name: owncloud_redis1
         volumes:
-            - ../docker_volumes/redis:/var/lib/redis
+            - /srv/docker_volumes/redis:/var/lib/redis
         # healthcheck:
         #     test: ["CMD", "/usr/bin/healthcheck"]
         #     interval: 30s
