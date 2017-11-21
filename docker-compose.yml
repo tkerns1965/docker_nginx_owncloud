@@ -19,9 +19,12 @@ services:
         restart: always
 
     owncloud:
-        # build: owncloud
-        # image: owncloud_server
-        image: owncloud/server:${OWNCLOUD_VERSION}
+        build:
+            context: owncloud
+            args:
+                - OWNCLOUD_VERSION=${OWNCLOUD_VERSION}
+        image: owncloud_server
+        # image: owncloud/server:${OWNCLOUD_VERSION}
         container_name: owncloud_server1
         volumes:
             - ../docker_volumes/owncloud:/mnt/data
