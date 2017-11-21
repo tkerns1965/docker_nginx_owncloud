@@ -12,5 +12,10 @@ $CONFIG = array(
       "url" => "/custom",
       "writable" => true
     )
-  )
+  ),
+  "trusted_proxies"   => ['nginx'],
+  "overwritehost"     => "owncloud.tkhome.ignorelist.com",
+  "overwriteprotocol" => "https",
+  "overwritewebroot"  => "/",
+  "overwritecondaddr" => "^nginx$"
 );
