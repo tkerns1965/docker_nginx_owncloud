@@ -44,4 +44,9 @@ $CONFIG = array (
   'htaccess.RewriteBase' => '/',
   'memcache.distributed' => '\\OC\\Memcache\\Redis',
   'memcache.locking' => '\\OC\\Memcache\\Redis',
+  "trusted_proxies"   => ['nginx'],
+  "overwritehost"     => "owncloud.tkhome.ignorelist.com",
+  "overwriteprotocol" => "https",
+  "overwritewebroot"  => "/",
+  "overwritecondaddr" => "^nginx$",
 );
