@@ -22,6 +22,8 @@ services:
         build: ampache
         image: ampache_owncloud
         container_name: ampache_owncloud1
+        ports:
+            - "8080:80"
         depends_on:
             - owncloud
         restart: always
