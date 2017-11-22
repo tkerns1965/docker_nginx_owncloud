@@ -22,6 +22,8 @@ services:
         build: ampache
         image: ampache_owncloud
         container_name: ampache_owncloud1
+        volumes:
+            - /srv/docker_volumes/owncloud/files/tony/files/Music:/mnt/owncloud_music
         ports:
             - "8080:80"
         depends_on:
