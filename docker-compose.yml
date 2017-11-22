@@ -18,6 +18,14 @@ services:
             - CERTBOT_DOMAIN=${CERTBOT_DOMAIN}
         restart: always
 
+    ampache:
+        build: ampache
+        image: ampache_owncloud
+        container_name: ampache_owncloud1
+        depends_on:
+            - owncloud
+        restart: always
+
     owncloud:
         build:
             context: owncloud
