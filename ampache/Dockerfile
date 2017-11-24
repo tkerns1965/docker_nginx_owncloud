@@ -46,7 +46,7 @@ RUN rm -rf /var/www/* && \
     cd /var/www && \
     composer update --prefer-source --no-interaction
 
-RUN chown -R www-data:www-data /var/www
+# RUN chown -R www-data:www-data /var/www
 
 COPY 001-ampache.conf /etc/apache2/sites-available/
 
