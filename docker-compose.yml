@@ -37,7 +37,7 @@ services:
         #     args:
         #         - OWNCLOUD_VERSION=${OWNCLOUD_VERSION}
         # image: owncloud_server
-        image: owncloud/server: ${OWNCLOUD_VERSION}
+        image: owncloud/server:${OWNCLOUD_VERSION}
         container_name: owncloud_server1
         volumes:
             - /srv/docker_volumes/owncloud:/mnt/data
