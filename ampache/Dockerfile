@@ -45,8 +45,8 @@ RUN rm -rf /var/www/* && \
         tar xz -C /var/www/ --strip-components=1 && \
     cd /var/www && \
     composer update --prefer-source --no-interaction
-    # && \
-    # chown -R www-data /var/www
+
+RUN chown -R www-data:www-data /var/www
 
 COPY 001-ampache.conf /etc/apache2/sites-available/
 
