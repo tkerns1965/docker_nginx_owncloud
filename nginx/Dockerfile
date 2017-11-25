@@ -1,7 +1,10 @@
-FROM nginx:1.13.6-alpine
+FROM nginx:1.13.7-alpine
 
 RUN apk update && \
-    apk add certbot s6 && \
+    apk add \
+        certbot \
+        s6 && \
+    rm -rf /var/cache/apk/* && \
     mkdir /var/log/s6 && \
     mkdir /var/log/s6/cron && \
     mkdir /var/log/s6/nginx
