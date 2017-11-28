@@ -6,6 +6,7 @@ services:
         image: nginx_revproxy
         container_name: nginx_revproxy1
         environment:
+            - NGINX_VERSION=1.13.7-alpine
             - CERTBOT_EMAIL=${CERTBOT_EMAIL}
             - CERTBOT_DOMAIN=${CERTBOT_DOMAIN}
             - CERTBOT_WEBROOT=/usr/share/nginx/html
@@ -41,10 +42,10 @@ services:
         #     args:
         #         - OWNCLOUD_VERSION=${OWNCLOUD_VERSION}
         # image: owncloud_server
-        image: owncloud/server:${OWNCLOUD_VERSION}
+        image: owncloud/server:10.0.3-apache
         container_name: owncloud_server1
         environment:
-            - OWNCLOUD_VERSION=10.0.3
+            - OWNCLOUD_VERSION=10.0.3-apache
             - OWNCLOUD_DOMAIN=${OWNCLOUD_DOMAIN}
             - OWNCLOUD_ADMIN_USERNAME=${OWNCLOUD_ADMIN_USERNAME}
             - OWNCLOUD_ADMIN_PASSWORD=${OWNCLOUD_ADMIN_PASSWORD}
