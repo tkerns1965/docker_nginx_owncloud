@@ -6,9 +6,8 @@ RUN apk update && \
         certbot \
         s6 && \
     rm -rf /var/cache/apk/* && \
-    mkdir /var/log/s6 && \
-    mkdir /var/log/s6/cron && \
-    mkdir /var/log/s6/nginx
+    mkdir -p /var/log/s6/cron && \
+    mkdir -p /var/log/s6/nginx
 
 COPY s6 /etc/s6
 COPY reload_nginx.sh /root/
