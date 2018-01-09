@@ -19,22 +19,22 @@ services:
             - owncloud
         restart: always
 
-    ampache:
-        build: ampache
-        image: ampache_owncloud
-        container_name: ampache_owncloud1
-        environment:
-            - AMPACHE_DB_HOST=mariadb
-            - AMPACHE_DB_USERNAME=${AMPACHE_DB_USERNAME}
-            - AMPACHE_DB_PASSWORD=${AMPACHE_DB_PASSWORD}
-        volumes:
-            - /srv/docker_volumes/owncloud/files/tony/files/Music:/mnt/owncloud_music
-            - /srv/docker_volumes/ampache/config:/var/www/config
-        ports:
-            - "8080:80"
-        depends_on:
-            - owncloud
-        restart: always
+    # ampache:
+    #     build: ampache
+    #     image: ampache_owncloud
+    #     container_name: ampache_owncloud1
+    #     environment:
+    #         - AMPACHE_DB_HOST=mariadb
+    #         - AMPACHE_DB_USERNAME=${AMPACHE_DB_USERNAME}
+    #         - AMPACHE_DB_PASSWORD=${AMPACHE_DB_PASSWORD}
+    #     volumes:
+    #         - /srv/docker_volumes/owncloud/files/tony/files/Music:/mnt/owncloud_music
+    #         - /srv/docker_volumes/ampache/config:/var/www/config
+    #     ports:
+    #         - "8080:80"
+    #     depends_on:
+    #         - owncloud
+    #     restart: always
 
     owncloud:
         # build:
